@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="20220216-1" author="rusanpav">
+        <createTable tableName="sizeScale">
+            <column name="id" type="SMALLINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_sizeScale"/>
+            </column>
+            <column name="name" type="varchar(3)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    
+    <changeSet id="20220216-2" author="rusanpav">
+        <createTable tableName="article">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_article"/>
+            </column>
+            <column name="code" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="brandId" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rmhGenderAgeId" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rmhCategoryId" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rmhProductTypeId" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rmhProductDivisionId" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sizeScaleId" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modifiedDate" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="ponomval" id="20220118-1">
+        <createTable tableName="brand">
+            <column autoIncrement="true" name="id" type="SMALLINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(10)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="brand_name_uindex"
+                tableName="brand"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-2">
+        <createTable tableName="channel">
+            <column autoIncrement="true" name="id" type="SMALLINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(10)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="channel_name_uindex"
+                tableName="channel"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-3">
+        <createTable tableName="city">
+            <column autoIncrement="true" name="id" type="SMALLINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="city_name_uindex"
+                tableName="city"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-4">
+        <createTable tableName="country">
+            <column autoIncrement="true" name="id" type="SMALLINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="code" type="VARCHAR(2)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="country_name_uindex"
+                tableName="country"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-5">
+        <createTable tableName="region">
+            <column autoIncrement="true" name="id" type="SMALLINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="region_name_uindex"
+                tableName="region"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-6">
+        <createTable tableName="rmhCategory">
+            <column autoIncrement="true" name="id" type="SMALLINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="rmhCategory_name_uindex"
+                tableName="rmhCategory"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-7">
+        <createTable tableName="rmhGenderAge">
+            <column autoIncrement="true" name="id" type="SMALLINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="rmhGenderAge_name_uindex"
+                tableName="rmhGenderAge"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-8">
+        <createTable tableName="rmhProductDivision">
+            <column autoIncrement="true" name="id" type="SMALLINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="rmhProductDivision_name_uindex"
+                tableName="rmhProductDivision"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-9">
+        <createTable tableName="rmhProductType">
+            <column autoIncrement="true" name="id" type="SMALLINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(40)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="rmhProductType_name_uindex"
+                tableName="rmhProductType"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-10">
+        <createTable tableName="store">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="channelId" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="countryId" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="regionId" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cityId" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sap" type="VARCHAR(10)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modifiedDate" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-11">
+        <createTable tableName="storeStatus">
+            <column autoIncrement="true" name="id" type="SMALLINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="storeStatus_name_uindex"
+                tableName="storeStatus"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-12">
+        <createTable tableName="warehouse">
+            <column autoIncrement="true" name="id" type="SMALLINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="code" type="SMALLINT">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(20)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="name"
+                constraintName="warehouse_name_uindex"
+                tableName="warehouse"/>
+        <addUniqueConstraint
+                columnNames="code"
+                constraintName="warehouse_code_uindex"
+                tableName="warehouse"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-13">
+        <createTable tableName="sku">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="articleId" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ean" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="upc" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sizeIndex" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="sku" baseColumnNames="articleId" constraintName="fk_sku_article"
+                                 referencedTableName="article"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-14">
+        <addForeignKeyConstraint baseTableName="article" baseColumnNames="brandId" constraintName="fk_article_brand"
+                                 referencedTableName="brand"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="article" baseColumnNames="rmhGenderAgeId"
+                                 constraintName="fk_article_rmhGenderAge"
+                                 referencedTableName="rmhGenderAge"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="article" baseColumnNames="rmhCategoryId"
+                                 constraintName="fk_article_rmhCategory"
+                                 referencedTableName="rmhCategory"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="article" baseColumnNames="rmhProductTypeId"
+                                 constraintName="fk_article_rmhProductType"
+                                 referencedTableName="rmhProductType"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="article" baseColumnNames="rmhProductDivisionId"
+                                 constraintName="fk_article_rmhProductDivision"
+                                 referencedTableName="rmhProductDivision"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="article" baseColumnNames="SizeScaleId"
+                                 constraintName="fk_article_sizeScale"
+                                 referencedTableName="sizeScale"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet author="ponomval" id="20220118-15">
+        <addForeignKeyConstraint baseTableName="store" baseColumnNames="channelId" constraintName="fk_store_channel"
+                                 referencedTableName="channel"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="store" baseColumnNames="countryId" constraintName="fk_store_country"
+                                 referencedTableName="country"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="store" baseColumnNames="regionId" constraintName="fk_store_region"
+                                 referencedTableName="region"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="store" baseColumnNames="cityId" constraintName="fk_store_city"
+                                 referencedTableName="city"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="ponomval" id="20220301-1">
+        <sql dbms="mysql" >
+            <![CDATA[
+insert into brand(id, name) values (-1, '<EMPTY>');
+insert into channel(id, name) values (-1, '<EMPTY>');
+insert into city(id, name) values (-1, '<EMPTY>');
+insert into country(id, code, name) values (-1, '-', '<EMPTY>');
+insert into region(id, name) values (-1, '<EMPTY>');
+insert into rmhCategory(id, name) values (-1, '<EMPTY>');
+insert into rmhGenderAge(id, name) values (-1, '<EMPTY>');
+insert into rmhProductDivision(id, name) values (-1, '<EMPTY>');
+insert into rmhProductType(id, name) values (-1, '<EMPTY>');
+insert into sizeScale(id, name) values (-1, '<->');
+            ]]>
+        </sql>
+        <comment>Inserts of blank dictionary values</comment>
+
+    </changeSet>
+
+</databaseChangeLog>

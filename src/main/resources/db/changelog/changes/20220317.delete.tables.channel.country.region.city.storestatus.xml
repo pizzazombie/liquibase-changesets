@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.8.xsd">
+
+    <changeSet author="stakhlev" id="20220317-delete.columns.in.table.store">
+
+        <dropForeignKeyConstraint  baseTableName="store" constraintName="fk_store_channel"/>
+        <dropForeignKeyConstraint  baseTableName="store" constraintName="fk_store_city"/>
+        <dropForeignKeyConstraint  baseTableName="store" constraintName="fk_store_country"/>
+        <dropForeignKeyConstraint  baseTableName="store" constraintName="fk_store_region"/>
+
+        <dropColumn tableName="store" columnName="channelId"/>
+        <dropColumn tableName="store" columnName="countryId"/>
+        <dropColumn tableName="store" columnName="regionId"/>
+        <dropColumn tableName="store" columnName="cityId"/>
+
+    </changeSet>
+
+    <changeSet author="stakhlev" id="20220317-delete.table.channel">
+        <dropTable  tableName="channel"/>
+    </changeSet>
+
+    <changeSet author="stakhlev" id="20220317-delete.table.country">
+        <dropTable  tableName="country"/>
+    </changeSet>
+
+    <changeSet author="stakhlev" id="20220317-delete.table.region">
+        <dropTable  tableName="region"/>
+    </changeSet>
+
+    <changeSet author="stakhlev" id="20220317-delete.table.city">
+        <dropTable  tableName="city"/>
+    </changeSet>
+
+    <changeSet author="stakhlev" id="20220317-delete.table.storestatus">
+        <dropTable  tableName="storeStatus"/>
+    </changeSet>
+
+</databaseChangeLog>
